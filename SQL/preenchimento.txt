@@ -1,0 +1,72 @@
+/* INSERT INTO igarassu.usuarios (login, senha, email, nome, tipo)
+VALUES
+('jose.silva', 'senha123', 'jose.silva@gmail.com', 'José da Silva', 2),
+('maria.souza', 'maria2025', 'maria.souza@gmail.com', 'Maria Souza', 1),
+('carlos.lima', 'carlos!@#', 'carlos.lima@gmail.com', 'Carlos Lima', 1),
+('ana.pereira', 'ana321', 'ana.pereira@hotmail.com', 'Ana Pereira', 2),
+('lucas.martins', 'lucas$456', 'lucas.martins@hotmail.com', 'Lucas Martins', 2),
+('fernanda.alves', 'fern@789', 'fernanda.alves@gmail.com', 'Fernanda Alves', 1),
+('roberto.dias', 'robDiaz!', 'roberto.dias@gmail.com', 'Roberto Dias', 2),
+('paula.gomes', 'pgomes99', 'paula.gomes@hotmail.com', 'Paula Gomes', 1); */
+
+/* INSERT INTO igarassu.solicitantes
+(usuario_id, nis, cpf, nome, sexo, endereco, cep)
+VALUES
+(1, '12345678901', '123.456.789-00', 'Rafael Andrade', 'M', 'Av. Dom Helder Câmara, 1500 - Centro', '53000-000'),
+(2, '23456789012', '234.567.890-11', 'Cláudia Nascimento', 'F', 'Rua das Acácias, 82 - Jardim Igarassu', '53001-000'),
+(3, '34567890123', '345.678.901-22', 'Bruno Ferreira', 'M', 'Av. São Sebastião, 105 - Sítio Histórico', '53002-000'),
+(4, '45678901234', '456.789.012-33', 'Patrícia Lima', 'F', 'Rua Eng. Álvaro Rabelo, 300 - Cruz de Rebouças', '53003-000'),
+(5, '56789012345', '567.890.123-44', 'Tiago Monteiro', 'M', 'Rua Bela Vista, 45 - Nova Cruz', '53004-000'),
+(6, '67890123456', '678.901.234-55', 'Renata Barros', 'F', 'Av. Alfredo Bandeira de Melo, 900 - Centro', '53005-000'),
+(7, '78901234567', '789.012.345-66', 'Eduardo Meireles', 'M', 'Rua das Mangueiras, 210 - Engenho Maranguape', '53006-000'),
+(8, '89012345678', '890.123.456-77', 'Camila Teixeira', 'F', 'Av. Dr. Francisco Alves, 400 - Pilar', '53007-000'); */
+
+/* INSERT INTO igarassu.agendamentos
+(usuario_id, solicitantes_id, data_agendamento, situacao, descricao)
+VALUES
+(1, 1, '2025-09-01 09:00:00', 1, 'Solicitação de benefício aprovada.'),
+(2, 2, '2025-09-02 10:30:00', 0, 'Documentação incompleta.'),
+(3, 3, '2025-09-03 08:45:00', 1, 'Agendamento deferido após análise.'),
+(4, 4, '2025-09-04 14:00:00', 0, 'Falta de comprovante de residência.'),
+(5, 5, '2025-09-05 11:15:00', 1, 'Benefício autorizado.'),
+(6, 6, '2025-09-06 13:30:00', 1, 'Revisão de cadastro concluída.'),
+(7, 7, '2025-09-07 15:00:00', 0, 'Pendência de NIS.'),
+(8, 8, '2025-09-08 16:20:00', 1, 'Solicitante atendeu aos critérios.'); */
+
+/* INSERT INTO igarassu.solicitacoes
+(usuario_id, data_solicitacao, data_deferido, resultado, texto)
+VALUES
+(1, '2025-08-01', '2025-08-15', TRUE, 'Solicitação aprovada após análise.'),
+(2, '2025-08-05', NULL, FALSE, 'Documentação incompleta, aguardando envio.'),
+(3, '2025-08-07', '2025-08-20', TRUE, 'Solicitação deferida.'),
+(4, '2025-08-10', NULL, FALSE, 'Solicitação negada por ausência de comprovantes.'),
+(5, '2025-08-12', '2025-08-25', TRUE, 'Aprovação concedida.'),
+(6, '2025-08-15', '2025-08-30', TRUE, 'Solicitação deferida com sucesso.'),
+(7, '2025-08-18', NULL, FALSE, 'Pendência no cadastro.'),
+(8, '2025-08-20', '2025-09-01', TRUE, 'Solicitação aprovada.'); */
+
+/* INSERT INTO igarassu.entregas
+(solicitacoes_id, numero, data_entrega, descricao, situacao)
+VALUES
+(1, '01', '2025-09-10', 'Entrega do benefício social.', 1),
+(3, '01', '2025-09-15', 'Entrega do auxilio funeraria.', 1),
+(5, '03', '2025-09-20', 'Entrega da cesta basica.', 1),
+(6, '02', '2025-09-25', 'Entrega do beneficio moradia.', 1),
+(8, '03', '2025-09-30', 'Entrega da cesta basica.', 1); */
+
+/* INSERT INTO igarassu.auxilios
+(nome, descricao, valor, quantidade)
+VALUES
+('Auxilio Moradia', 'Benefício para custear despesas com moradia', 500.00, 100),
+('Auxilio Funeraria', 'Cobertura para despesas funerárias', 2000.00, 50),
+('Auxilio Cesta Básica', 'Conjunto de alimentos básicos para famílias', 150.00, 300),
+('Auxilio Emergencial', 'Benefício financeiro emergencial', 600.00, 120),
+('Auxilio Transporte', 'Subsídio para transporte público', 100.00, 200); */
+
+
+
+
+
+
+
+

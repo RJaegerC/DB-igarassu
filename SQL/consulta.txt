@@ -1,0 +1,10 @@
+-- Exemplo de consulta buscando uma rota real de entrega.
+
+/* SELECT
+u.id as uid, s.usuario_id as suid, so.usuario_id as souid, e.solicitacoes_id as eid, u.nome as unome, s.nome as snome, so.resultado, e.descricao
+FROM igarassu.usuarios as u
+LEFT JOIN igarassu.solicitantes as s on u.id = s.usuario_id
+LEFT JOIN igarassu.solicitacoes as so on u.id = so.usuario_id
+INNER JOIN igarassu.entregas as e on so.id = e.solicitacoes_id
+ORDER BY uid ASC
+LIMIT 5; /*

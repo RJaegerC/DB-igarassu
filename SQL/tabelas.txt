@@ -1,0 +1,104 @@
+-- igarassu.usuarios definition
+
+CREATE TABLE `usuarios` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) DEFAULT NULL,
+  `senha` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `tipo` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- igarassu.solicitantes definition
+
+CREATE TABLE `solicitantes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(10) unsigned NOT NULL,
+  `nis` varchar(11) DEFAULT NULL,
+  `cpf` varchar(14) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `sexo` char(1) DEFAULT NULL,
+  `endereco` varchar(100) DEFAULT NULL,
+  `cep` varchar(9) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `solicitantes_unique` (`usuario_id`),
+  CONSTRAINT `solicitantes_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- igarassu.solicitacoes definition
+
+CREATE TABLE `solicitacoes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(10) unsigned NOT NULL,
+  `data_solicitacao` datetime DEFAULT NULL,
+  `data_deferido` datetime DEFAULT NULL,
+  `resultado` tinyint(1) DEFAULT NULL,
+  `texto` varchar(250) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `solicitacoes_unique` (`usuario_id`),
+  CONSTRAINT `solicitacoes_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- igarassu.entregas definition
+
+CREATE TABLE `entregas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `solicitacoes_id` int(10) unsigned DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `data_entrega` datetime DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `situacao` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `entregas_unique` (`solicitacoes_id`),
+  CONSTRAINT `entregas_solicitacoes_FK` FOREIGN KEY (`solicitacoes_id`) REFERENCES `solicitacoes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- igarassu.auxilios definition
+
+CREATE TABLE `auxilios` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
+  `quantidade` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- igarassu.agendamentos definition
+
+CREATE TABLE `agendamentos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(10) unsigned NOT NULL,
+  `solicitantes_id` int(10) unsigned NOT NULL,
+  `data_agendamento` datetime DEFAULT NULL,
+  `situacao` int(11) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `agendamentos_unique` (`usuario_id`,`solicitantes_id`),
+  KEY `agendamentos_solicitantes_FK` (`solicitantes_id`),
+  CONSTRAINT `agendamentos_solicitantes_FK` FOREIGN KEY (`solicitantes_id`) REFERENCES `solicitantes` (`id`),
+  CONSTRAINT `agendamentos_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
