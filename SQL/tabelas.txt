@@ -13,7 +13,6 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
 -- igarassu.solicitantes definition
 
 CREATE TABLE `solicitantes` (
@@ -29,9 +28,9 @@ CREATE TABLE `solicitantes` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `solicitantes_unique` (`usuario_id`),
-  CONSTRAINT `solicitantes_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+  CONSTRAINT `solicitantes_usuarios_FK` FOREIGN KEY (`id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 -- igarassu.solicitacoes definition
 
@@ -46,7 +45,7 @@ CREATE TABLE `solicitacoes` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `solicitacoes_unique` (`usuario_id`),
+  KEY `solicitacoes_usuarios_FK` (`usuario_id`),
   CONSTRAINT `solicitacoes_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -64,7 +63,7 @@ CREATE TABLE `entregas` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `entregas_unique` (`solicitacoes_id`),
+  KEY `entregas_solicitacoes_FK` (`solicitacoes_id`),
   CONSTRAINT `entregas_solicitacoes_FK` FOREIGN KEY (`solicitacoes_id`) REFERENCES `solicitacoes` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -97,7 +96,7 @@ CREATE TABLE `agendamentos` (
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `agendamentos_unique` (`usuario_id`,`solicitantes_id`),
+  KEY `agendamentos_usuarios_FK` (`usuario_id`),
   KEY `agendamentos_solicitantes_FK` (`solicitantes_id`),
   CONSTRAINT `agendamentos_solicitantes_FK` FOREIGN KEY (`solicitantes_id`) REFERENCES `solicitantes` (`id`),
   CONSTRAINT `agendamentos_usuarios_FK` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
