@@ -11,9 +11,25 @@ LIMIT 5; */
 
 -- Exemplo de consulta buscando agendamentos totais
 
-/* SELECT s.id, s.nome, COUNT(ag.id) AS total_agendamentos,
-GROUP_CONCAT(ag.id ORDER BY ag.id) AS agid
+/* SELECT s.id, s.nome, COUNT(ag.id) as total_agendamentos,
+GROUP_CONCAT(ag.id ORDER BY ag.id) as agid
 FROM igarassu.solicitantes as s
 LEFT JOIN igarassu.agendamentos as ag on ag.solicitantes_id = s.id
 WHERE s.nome LIKE 'Andre%'
 GROUP BY s.id, s.nome; */
+
+-- Exemplo de consulta de campos deletados pelo soft delete
+
+/* SELECT id FROM igarassu.solicitacoes as s 
+WHERE s.resultado  = FALSE */
+
+/* UPDATE igarassu.solicitacoes as s SET deleted_at = now() 
+WHERE s.id IN (2,4,7); */
+
+/* SELECT * FROM igarassu.solicitacoes as s 
+WHERE s.deleted_at IS NOT NULL; */
+
+-- Consulta da tabela normal
+
+/* SELECT * FROM igarassu.solicitacoes as s 
+WHERE s.deleted_at IS NULL; */
