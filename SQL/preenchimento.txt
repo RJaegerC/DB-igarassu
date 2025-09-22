@@ -19,6 +19,9 @@ VALUES
 (5, '56789012345', '567.890.123-44', 'Tiago Monteiro', 'M', 'Rua Bela Vista, 45 - Nova Cruz', '53004-000'),
 (6, '67890123456', '678.901.234-55', 'Renata Barros', 'F', 'Av. Alfredo Bandeira de Melo, 900 - Centro', '53005-000'),
 (7, '78901234567', '789.012.345-66', 'Eduardo Meireles', 'M', 'Rua das Mangueiras, 210 - Engenho Maranguape', '53006-000'),
+(1, '52344232321', '991.236.789-60', 'Andre Andrade', 'M', 'Av. Dom Helio mar, 120 - Centro', '55000-000'),
+(1, '63453981212', '224.347.530-31', 'Andre Nascimento', 'M', 'Rua das gracas, 22 - Jardim Paulista', '51001-000'),
+(5, '94127901323', '125.638.501-12', 'Andre Ferreira', 'M', 'Av. martin souza, 15 - Sítio Amarelo', '53022-000'),
 (8, '89012345678', '890.123.456-77', 'Camila Teixeira', 'F', 'Av. Dr. Francisco Alves, 400 - Pilar', '53007-000'); */
 
 /* INSERT INTO igarassu.agendamentos
