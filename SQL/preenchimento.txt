@@ -60,7 +60,10 @@ VALUES
 (1, '01', '2025-09-10', 'Entrega do benefício social.', 1),
 (3, '01', '2025-09-15', 'Entrega do auxilio funeraria.', 1),
 (5, '03', '2025-09-20', 'Entrega da cesta basica.', 1),
-(6, '02', '2025-09-25', 'Entrega do beneficio moradia.', 1),
+(6, '02', '2025-09-25', 'Entrega do beneficio moradia.', 1)
+(11, '01', '2025-09-10', 'Entrega do benefício social.', 1),
+(10, '01', '2025-09-15', 'Entrega do auxilio funeraria.', 1),
+(9, '03', '2025-09-20', 'Entrega da cesta basica.', 1),
 (8, '03', '2025-09-30', 'Entrega da cesta basica.', 1); */
 
 /* INSERT INTO igarassu.auxilios
