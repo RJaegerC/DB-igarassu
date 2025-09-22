@@ -7,4 +7,13 @@ LEFT JOIN igarassu.solicitantes as s on u.id = s.usuario_id
 LEFT JOIN igarassu.solicitacoes as so on u.id = so.usuario_id
 INNER JOIN igarassu.entregas as e on so.id = e.solicitacoes_id
 ORDER BY uid ASC
-LIMIT 5; /*
+LIMIT 5; */
+
+-- Exemplo de consulta buscando agendamentos totais
+
+/* SELECT s.id, s.nome, COUNT(ag.id) AS total_agendamentos,
+GROUP_CONCAT(ag.id ORDER BY ag.id) AS agid
+FROM igarassu.solicitantes as s
+LEFT JOIN igarassu.agendamentos as ag on ag.solicitantes_id = s.id
+WHERE s.nome LIKE 'Andre%'
+GROUP BY s.id, s.nome; */
