@@ -34,6 +34,9 @@ VALUES
 (5, 5, '2025-09-05 11:15:00', 1, 'Benefício autorizado.'),
 (6, 6, '2025-09-06 13:30:00', 1, 'Revisão de cadastro concluída.'),
 (7, 7, '2025-09-07 15:00:00', 0, 'Pendência de NIS.'),
+(1, 12, '2025-09-24 09:30:00', 1, 'Solicitação de auxilio moradia aprovada.'),
+(1, 13, '2025-09-16 10:40:00', 1, 'Agendamento deferido.'),
+(5, 14, '2025-09-08 08:20:00', 1, 'Agendamento deferido após análise.'),
 (8, 8, '2025-09-08 16:20:00', 1, 'Solicitante atendeu aos critérios.'); */
 
 /* INSERT INTO igarassu.solicitacoes
